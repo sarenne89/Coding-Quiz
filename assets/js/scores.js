@@ -1,1 +1,1 @@
-var scoreList = document.querySelector("#highscores");
+const scoreList = document.querySelector("#highscores");
