@@ -11,10 +11,10 @@ const initials = document.querySelector("#initials");
 const feedback = document.querySelector("#feedback");
 let questionTracker = 0;
 let currentScore = 0;
-var timeLeft = 100
+let timeLeft = 60;
+let chosenAnswer = "";
 
 function startTimer() {
-    // Sets interval in variable
     var timerInterval = setInterval(function() {
       timeLeft--;
       timer.textContent = timeLeft;
@@ -32,7 +32,32 @@ function startGame() {
     startButton.classList.toggle("hide");
     startScreen.classList.toggle("hide");
     questionsContainer.classList.toggle("hide")
-    question.textContent = questionList[0].question
+    getNextQuestion();
 };
+
+function getNextQuestion() {
+    question.textContent = questionList[questionTracker].question;
+    for (let i = 0; i < questionList[questionTracker].choices.length; i++) {
+        var choicesButton = document.createElement('input');
+        choicesButton.type = 'button';
+        choicesButton.value = questionList[questionTracker].choices[i];
+        choicesButton.id = "elem" + [i];
+        
+        choicesButton.classList.add("choicesButton");
+        choicesButton.addEventListener("click", checkAnswer());
+        if (questionList[questionTracker].choices[i] === questionList[questionTracker].answer) 
+        {
+            choicesButton.dataset.answer = true;
+        }
+        else {
+            choicesButton.dataset.answer = false;
+        }
+        choices.appendChild(choicesButton);
+    }
+};
+
+function checkAnswer() {
+    console.log("Hello there!");
+}
 
 startButton.addEventListener("click", startGame);

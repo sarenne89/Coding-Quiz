@@ -1,6 +1,7 @@
 body {
   font-family: Arial;
   font-size: 120%;
+  background-color: #f9f9f9;
 }
 
 a {
@@ -28,10 +29,29 @@ button {
 
 button:hover {
   background-color: #8570a5;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.choices button {
-  display: block;
+.choices {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choicesButton {
+  display: inline-block;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 100%;
+  background-color: #563d7c;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+  border: 0;
+  transition: background-color 0.1s;
+}
+
+.choicesButton:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
 input[type="text"] {
