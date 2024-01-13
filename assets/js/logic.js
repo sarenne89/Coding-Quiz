@@ -13,6 +13,8 @@ let questionTracker = 0;
 let currentScore = 0;
 let timeLeft = 60;
 let selectedAnswer = "";
+let scoreItems = [];
+let highScore = "";
 
 function startTimer() {
     var timerInterval = setInterval(function() {
@@ -69,16 +71,22 @@ function checkAnswer(e) {
     else {timeLeft -= 10};
     
 };
-    
+
+function pushScoreItem() {
+    let currentScoreItem = initials.value.toUpperCase() + "---" + JSON.parse(finalScore.innerText);
+    scoreItems.push(currentScoreItem);
+}
+
 function showEndScreen() {   
     endScreen.classList.remove("hide");
     questionsContainer.classList.add("hide");
     let highScore = currentScore + timeLeft;
     finalScore.append(highScore)
+    submitButton.addEventListener("click", pushScoreItem)
 };
 
 function hidePreviousAnswers() {
-    var answerButtons = document.getElementsByClassName('choicesButton');
+    let answerButtons = document.getElementsByClassName('choicesButton');
     for (var i = 0; i < answerButtons.length; i++) {
     answerButtons[i].classList.add("hide");
     };
