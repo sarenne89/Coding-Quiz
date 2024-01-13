@@ -21,7 +21,7 @@ const questionList = [
     },
     {
         question: "BONUS. Darth Vader is Luke Skywalker's father.",
-        choices: ["'That's not true! That's impossible!'", '"Search your feelings, you know it to be true!"', '"NOOOOOOOO!"', "True"],
-        answer: "True",
+        choices: ['"*I* am your father!"',"'That's not true! That's impossible!'",],
+        answer: '"*I* am your father!"',
     }
 ];

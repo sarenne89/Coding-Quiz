@@ -8,14 +8,19 @@ In this weeks challenge we have been tasked with creating a coding quiz using Ja
 There will be a a start button, a timer, and a series of questions with buttons for answers. 
 Each time the right answer is clicked, the next question will appear. When the wrong answer is clicked, time will be removed from the timer. 
 At the end of the quiz or when the timer reaches zero, the player will be taken to another page where they can input their name along with their high score, and this will be stored in local storage.
+I have included detailed descriptions of each individual function within the various javascript files.
 
 ## Installation
 
 Visit https://sarenne89.github.io/Coding-Quiz in your browser.
 
 ## Usage
-
-(add screenshot here)
+Question 1, showing answer choices and timer
+![](assets/img/cq1.png)
+Bonus question, showing choices specific to the question and timer progression
+![](assets/img/cq2.png)
+High Scores Page
+![](assets/img/cq3.png)
 
 --
 
