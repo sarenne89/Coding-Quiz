@@ -56,18 +56,34 @@ function getNextQuestion() {
     }
 };
 
+function playCorrect() {
+    let correct = new Audio ("../sfx/correct.wav");
+    correct.play();
+}
+
+function playIncorrect() {
+    let incorrect = new Audio ("../sfx/correct.wav");
+    incorrect.play();
+}
+
 function checkAnswer(e) {
     const selectedAnswer = e.target;
     if (JSON.parse(selectedAnswer.dataset.answer) === true) {
+        playCorrect();
         currentScore += 100;
         questionTracker ++;
         hidePreviousAnswers();
         if (questionTracker >= questionList.length) {
             showEndScreen();
             }
-        else {getNextQuestion()};
+        else {
+            getNextQuestion()
+        };
     }
-    else {timeLeft -= 10};
+    else {
+        playIncorrect();
+        timeLeft -= 10
+    };
 };
 
 function showEndScreen() {   
@@ -91,6 +107,8 @@ function pushScoreItem() {
     debugger;
     localStorage.setItem("savedScoreItems", JSON.stringify(listOfScores));
 };
+
+
 
 startButton.addEventListener("click", startGame);
 submitButton.addEventListener("click", pushScoreItem)
