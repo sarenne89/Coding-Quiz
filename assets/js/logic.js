@@ -11,7 +11,6 @@ const initials = document.querySelector("#initials");
 const feedback = document.querySelector("#feedback");
 let questionTracker = 0;
 let currentScore = 0;
-let highScore = Number
 let timeLeft = 60;
 let selectedAnswer = "";
 
@@ -59,7 +58,7 @@ function getNextQuestion() {
 function checkAnswer(e) {
     const selectedAnswer = e.target;
     if (JSON.parse(selectedAnswer.dataset.answer) === true) {
-        currentScore += 1000;
+        currentScore += 100;
         questionTracker ++;
         hidePreviousAnswers();
         if (questionTracker >= questionList.length) {
@@ -74,7 +73,8 @@ function checkAnswer(e) {
 function showEndScreen() {   
     endScreen.classList.remove("hide");
     questionsContainer.classList.add("hide");
-    const highScore = currentScore;
+    let highScore = currentScore + timeLeft;
+    finalScore.append(highScore)
 };
 
 function hidePreviousAnswers() {
