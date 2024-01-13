@@ -6,7 +6,7 @@ const questionList = [
     },
     {
     question: "2. The condition in an if / else statement is enclosed within _____.",
-    choices: ["commas ,", "curly brackets {}", "paranthesis ()", "square brackets []"],
+    choices: ["paranthesis ()", "commas ,", "curly brackets {}",  "square brackets []"],
     answer: "paranthesis ()",
     },
     {
@@ -16,11 +16,11 @@ const questionList = [
     },
     {
         question: "4. String values must be enclosed within _____ when being assigned to variables.",
-        choices: ["commas", "curly brackets {}", "quotes", "paranthesis ()"],
+        choices: ["commas", "quotes", "curly brackets {}",  "paranthesis ()"],
         answer: "quotes",
     },
     {
-        question: "5. Darth Vader is Luke Skywalker's father.",
+        question: "BONUS. Darth Vader is Luke Skywalker's father.",
         choices: ["'That's not true! That's impossible!'", '"Search your feelings, you know it to be true!"', '"NOOOOOOOO!"', "True"],
         answer: "True",
     }
