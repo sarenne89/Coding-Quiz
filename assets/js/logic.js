@@ -57,12 +57,12 @@ function getNextQuestion() {
 };
 
 function playCorrect() {
-    let correct = new Audio ("sfx/correct.wav");
+    let correct = new Audio ("assets/sfx/correct.wav");
     correct.play();
 }
 
 function playIncorrect() {
-    let incorrect = new Audio ("sfx/incorrect.wav");
+    let incorrect = new Audio ("assets/sfx/incorrect.wav");
     incorrect.play();
 }
 
