@@ -16,7 +16,12 @@ const questionList = [
     },
     {
         question: "4. String values must be enclosed within _____ when being assigned to variables.",
-        choices: ["", "", "", ""],
-        answer: "",
+        choices: ["commas", "curly brackets {}", "quotes", "paranthesis ()"],
+        answer: "quotes",
+    },
+    {
+        question: "5. Darth Vader is Luke Skywalker's father.",
+        choices: ["'That's not true! That's impossible!'", '"Search your feelings, you know it to be true!"', '"NOOOOOOOO!"', "True"],
+        answer: "True",
     }
 ];

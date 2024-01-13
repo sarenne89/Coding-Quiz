@@ -11,17 +11,18 @@ const initials = document.querySelector("#initials");
 const feedback = document.querySelector("#feedback");
 let questionTracker = 0;
 let currentScore = 0;
+let highScore = Number
 let timeLeft = 60;
-let chosenAnswer = "";
+let selectedAnswer = "";
 
 function startTimer() {
     var timerInterval = setInterval(function() {
       timeLeft--;
       timer.textContent = timeLeft;
-      if(timeLeft === 0) {
+      if(timeLeft === 0 || questionTracker === questionList.length) {
         clearInterval(timerInterval);
-        endScreen.classList.toggle("hide");
-        questionsContainer.classList.toggle("hide");
+        endScreen.classList.remove("hide");
+        questionsContainer.classList.add("hide");
       }
     }, 1000);
   }
@@ -29,9 +30,9 @@ function startTimer() {
 function startGame() {
     startTimer();
     timer.textContent = timeLeft;
-    startButton.classList.toggle("hide");
-    startScreen.classList.toggle("hide");
-    questionsContainer.classList.toggle("hide")
+    startButton.classList.add("hide");
+    startScreen.classList.add("hide");
+    questionsContainer.classList.remove("hide")
     getNextQuestion();
 };
 
@@ -41,10 +42,9 @@ function getNextQuestion() {
         var choicesButton = document.createElement('input');
         choicesButton.type = 'button';
         choicesButton.value = questionList[questionTracker].choices[i];
-        choicesButton.id = "elem" + [i];
-        
+        choicesButton.id = "choice" + [i];
+        choicesButton.addEventListener("click", checkAnswer)
         choicesButton.classList.add("choicesButton");
-        choicesButton.addEventListener("click", checkAnswer());
         if (questionList[questionTracker].choices[i] === questionList[questionTracker].answer) 
         {
             choicesButton.dataset.answer = true;
@@ -56,8 +56,32 @@ function getNextQuestion() {
     }
 };
 
-function checkAnswer() {
-    console.log("Hello there!");
-}
+function checkAnswer(e) {
+    const selectedAnswer = e.target;
+    if (JSON.parse(selectedAnswer.dataset.answer) === true) {
+        currentScore += 1000;
+        questionTracker ++;
+        hidePreviousAnswers();
+        if (questionTracker >= questionList.length) {
+            showEndScreen();
+            }
+        else {getNextQuestion()};
+    }
+    else {timeLeft -= 10};
+    
+};
+    
+function showEndScreen() {   
+    endScreen.classList.remove("hide");
+    questionsContainer.classList.add("hide");
+    const highScore = currentScore;
+};
+
+function hidePreviousAnswers() {
+    var answerButtons = document.getElementsByClassName('choicesButton');
+    for (var i = 0; i < answerButtons.length; i++) {
+    answerButtons[i].classList.add("hide");
+    };
+};  
 
 startButton.addEventListener("click", startGame);
