@@ -13,7 +13,6 @@ let questionTracker = 0;
 let currentScore = 0;
 let timeLeft = 60;
 let selectedAnswer = "";
-let scoreItems = [];
 let highScore = "";
 
 function startTimer() {
@@ -69,20 +68,13 @@ function checkAnswer(e) {
         else {getNextQuestion()};
     }
     else {timeLeft -= 10};
-    
 };
-
-function pushScoreItem() {
-    let currentScoreItem = initials.value.toUpperCase() + "---" + JSON.parse(finalScore.innerText);
-    scoreItems.push(currentScoreItem);
-}
 
 function showEndScreen() {   
     endScreen.classList.remove("hide");
     questionsContainer.classList.add("hide");
     let highScore = currentScore + timeLeft;
     finalScore.append(highScore)
-    submitButton.addEventListener("click", pushScoreItem)
 };
 
 function hidePreviousAnswers() {
@@ -92,4 +84,13 @@ function hidePreviousAnswers() {
     };
 };  
 
+function pushScoreItem() {
+    let currentScoreItem = initials.value.toUpperCase() + " " + finalScore.innerText;
+    let listOfScores = (JSON.parse(localStorage.getItem("scoreItemsString")) ?? [])
+    listOfScores.push(currentScoreItem);
+    debugger;
+    localStorage.setItem("savedScoreItems", JSON.stringify(listOfScores));
+};
+
 startButton.addEventListener("click", startGame);
+submitButton.addEventListener("click", pushScoreItem)
