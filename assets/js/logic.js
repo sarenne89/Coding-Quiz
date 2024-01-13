@@ -104,7 +104,6 @@ function pushScoreItem() {
     let currentScoreItem = initials.value.toUpperCase() + " " + finalScore.innerText;
     let listOfScores = (JSON.parse(localStorage.getItem("scoreItemsString")) ?? [])
     listOfScores.push(currentScoreItem);
-    debugger;
     localStorage.setItem("savedScoreItems", JSON.stringify(listOfScores));
 };
 
