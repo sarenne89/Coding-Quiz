@@ -15,6 +15,7 @@ let currentScore = 0;
 let timeLeft = 60;
 let selectedAnswer = "";
 let highScore = "";
+const listOfScores = JSON.parse(localStorage.getItem("savedScoreItems"));
 
 //Starts the game timer, hides the start screen and button and shows the div containing questions.
 function startGame() {
@@ -121,7 +122,7 @@ function showEndScreen() {
 function pushScoreItem() {
   let currentScoreItem =
     initials.value.toUpperCase() + " " + finalScore.innerText;
-  let listOfScores = JSON.parse(localStorage.getItem("scoreItemsString")) ?? [];
+  debugger;
   listOfScores.push(currentScoreItem);
   localStorage.setItem("savedScoreItems", JSON.stringify(listOfScores));
 }
